@@ -55,14 +55,16 @@ voiture1 = Voiture("BMW", "M3", "Blanche", "1", 1980)
 voiture2 = Voiture('Mercedes', "C63", "Noire", "2", 2011)
 voiture3 = Voiture('Toyota', "Corolla", "Bleu", "3", 2025)
 
+print(isinstance(voiture1, Voiture))
+
 # voiture1.marque = "Peugeot"
 # voiture1.marque = 'Peugeot'
 # print(voiture1._marque)
 # del voiture1.marque
 
 # voiture1.identifiant = "2"
-print(voiture1.identifiant)
-print(voiture1.age_vehicule)
+# print(voiture1.identifiant)
+# print(voiture1.age_vehicule)
 
 # print(voiture1.marque)
 # print(voiture2.marque)

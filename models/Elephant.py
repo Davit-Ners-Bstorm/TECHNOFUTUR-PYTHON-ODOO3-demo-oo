@@ -10,26 +10,61 @@ class Elephant:
         # Appetit
         if appetit < 0:
             print("Valeur negative, l'estomac explose!!!L'appetit est automatiquement ramené à 0")
-            self.appetit = 0
+            self._appetit = 0
         elif appetit > 100:
             print("Attention il va mourrir de faim, incorrecte, l'appetit est automatiquement ramené à 100")
-            self.appetit = 100
+            self._appetit = 100
         else:
-            self.appetit = appetit
+            self._appetit = appetit
 
         # Satisfaction
         if satisfaction < 0:
             print("Valeur negative, il va mourrir de tristesse!!!La satisfaction est automatiquement ramené à 0")
-            self.satisfaction = 0
+            self._satisfaction = 0
         elif satisfaction > 100:
             print("Attention il v aexploser de joie, la satisfaction est automatiquement ramené à 100")
-            self.satisfaction = 100
+            self._satisfaction = 100
         else:
-            self.satisfaction = satisfaction
+            self._satisfaction = satisfaction
 
         self.soigneur = soigneur
 
-        self.en_vie = True
+        self._en_vie = True
+
+    @property
+    def nom(self):
+        return self._nom
+
+    @nom.setter
+    def nom(self, nv_nom: str):
+        if not nv_nom:
+            raise ValueError("Le nom ne peut pas être vide!")
+        if type(nv_nom) != str:
+            raise TypeError("Le nom doit être un string!")
+        self._nom = nv_nom
+
+    @property
+    def appetit(self):
+        return self._appetit
+
+    @property
+    def satisfaction(self):
+        return self._satisfaction
+
+    @property
+    def en_vie(self):
+        return self._en_vie
+
+    @property
+    def soigneur(self):
+        return self._soigneur
+
+    @soigneur.setter
+    def soigneur(self, nv_soigneur: "Soigneur"):
+        if not isinstance(nv_soigneur, Soigneur):
+            raise TypeError("Le soigneur doit être de type soigneur!")
+        self._soigneur = nv_soigneur
+        
 
     def manger(self):
         if not self.en_vie:
@@ -38,8 +73,7 @@ class Elephant:
         if self.appetit <= 0:
             print(f"{self.nom} n'a pas faim")
             return
-        self.appetit = 0
-        self.satisfaction = self.satisfaction + 10 if self.satisfaction < 91 else 100
+        self._appetit = 0
+        self._satisfaction = self.satisfaction + 10 if self.satisfaction < 91 else 100
         # self.satisfaction = min(self.satisfaction + 10, 100)
         print(f"{self.nom} a bien mangé, et il est satisfait!")
-
