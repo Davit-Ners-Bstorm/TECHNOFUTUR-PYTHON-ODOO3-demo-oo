@@ -1,5 +1,6 @@
 class Voiture:
     nombre_de_roues = 4
+    __slots__ = ('marque', 'model', 'couleur', 'vitesse_actuelle')
 
     def __init__(self, marque, model, couleur):
         self.marque = marque
@@ -26,5 +27,21 @@ voiture3 = Voiture('Toyota', "Corolla", "Bleu")
 # print(voiture3.nombre_de_roues)
 
 print(Voiture.nombre_de_roues)
-print(Voiture.marque)
+# print(Voiture.marque)
 
+print(voiture1.nombre_de_roues, voiture2.nombre_de_roues)
+
+# voiture1.hello = 2
+
+
+
+
+# class Chat:
+#     nom = "Gerard"
+
+# chat1 = Chat()
+# chat2 = Chat()
+# chat1.nom = "Kitty"
+# chat1.race = "Siamois"
+
+# print(chat1.race, chat2.nom, Chat.nom)
