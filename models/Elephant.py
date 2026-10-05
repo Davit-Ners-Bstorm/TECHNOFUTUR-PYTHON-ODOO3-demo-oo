@@ -1,5 +1,10 @@
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from models.Soigneur import Soigneur
+
 class Elephant:
-    def __init__(self, nom: str, appetit: int, satisfaction: int, soigneur):
+    def __init__(self, nom: str, appetit: int, satisfaction: int, soigneur: "Soigneur"):
         self.nom = nom
 
         # Appetit
