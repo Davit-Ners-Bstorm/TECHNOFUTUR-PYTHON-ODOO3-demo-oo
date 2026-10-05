@@ -1,11 +1,19 @@
+from datetime import date
+
 class Voiture:
     nombre_de_roues = 4
 
-    def __init__(self, marque, model, couleur):
+    def __init__(self, marque, model, couleur, identifiant, date_de_fabrication):
         self.marque = marque
+        self._identifiant = identifiant
         self.model = model
         self.couleur = couleur
+        self.date_de_fabrication = date_de_fabrication
         self.vitesse_actuelle = 0
+
+    @property
+    def identifiant(self):
+        return self._identifiant
 
     @property
     def marque(self):
@@ -36,16 +44,25 @@ class Voiture:
     def infos(self):
         return f"{self.marque} - {self.model} --- Roule à {self.vitesse_actuelle} km/h"
 
+    @property
+    def age_vehicule(self):
+        today = date.today()
+        return today.year - self.date_de_fabrication
 
 
-voiture1 = Voiture("BMW", "M3", "Blanche")
-voiture2 = Voiture('Mercedes', "C63", "Noire")
-voiture3 = Voiture('Toyota', "Corolla", "Bleu")
+
+voiture1 = Voiture("BMW", "M3", "Blanche", "1", 1980)
+voiture2 = Voiture('Mercedes', "C63", "Noire", "2", 2011)
+voiture3 = Voiture('Toyota', "Corolla", "Bleu", "3", 2025)
 
 # voiture1.marque = "Peugeot"
 # voiture1.marque = 'Peugeot'
-print(voiture1._marque)
-del voiture1.marque
+# print(voiture1._marque)
+# del voiture1.marque
+
+# voiture1.identifiant = "2"
+print(voiture1.identifiant)
+print(voiture1.age_vehicule)
 
 # print(voiture1.marque)
 # print(voiture2.marque)
