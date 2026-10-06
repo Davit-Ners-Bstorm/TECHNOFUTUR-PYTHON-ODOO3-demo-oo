@@ -93,9 +93,3 @@ voiture3 = Voiture('Toyota', "Corolla", "Bleu", "3", 2025)
 # chat1.race = "Siamois"
 
 # print(chat1.race, chat2.nom, Chat.nom)
-
-daaate = "07/10/1994"
-
-
-
-print(age)
