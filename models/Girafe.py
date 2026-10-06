@@ -26,3 +26,6 @@ class Girafe(Animal):
 
     def observer_environement(self, how: str = 'intense'):
         print(f"La girafe {self.nom} observe l'environnement de manière {how} , du haut de son cou de {self.longueur_cou} cm!")
+
+    def probabilite_deces(self):
+        return 10

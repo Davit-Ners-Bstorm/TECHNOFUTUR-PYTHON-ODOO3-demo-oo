@@ -1,7 +1,15 @@
 from datetime import date, datetime
 
 class Voiture:
+    @staticmethod
+    def verifier_marque(marque: str):
+        if marque.lower() == "citroën":
+            return False
+        return True
+
     nombre_de_roues = 4
+    voiture_creer_list = []
+    compteur = 0
 
     def __init__(self, marque, model, couleur, identifiant, date_de_fabrication):
         self.marque = marque
@@ -10,6 +18,8 @@ class Voiture:
         self.couleur = couleur
         self.date_de_fabrication = date_de_fabrication
         self.vitesse_actuelle = 0
+        Voiture.voiture_creer_list.append(self)
+        Voiture.compteur += 1
 
     @property
     def identifiant(self):
@@ -107,6 +117,7 @@ class VoitureDeSport(Voiture, Test):
 voiture1 = Voiture("BMW", "M3", "Blanche", "1", 1980)
 voiture2 = Voiture('Mercedes', "C63", "Noire", "2", 2011)
 voiture3 = Voiture('Toyota', "Corolla", "Bleu", "3", 1980)
+voiture4 = Voiture('Citroën', "C2", "Bleu", "4", 2004)
 
 # print(isinstance(voiture1, Voiture))
 
@@ -203,3 +214,10 @@ print(voiture_sport.accelerer())
 print(VoitureDeSport.__bases__)
 
 print(issubclass(VoitureDeSport, Voiture))
+
+
+print(Voiture.verifier_marque(voiture1.marque))
+print(Voiture.verifier_marque(voiture4.marque))
+
+print(Voiture.voiture_creer_list)
+print(Voiture.compteur)

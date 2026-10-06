@@ -1,9 +1,10 @@
 from typing import TYPE_CHECKING
+from abc import ABC, abstractmethod
 
 if TYPE_CHECKING:
     from models.Soigneur import Soigneur
 
-class Animal:
+class Animal(ABC):
     def __init__(self, nom: str, appetit: int, satisfaction: int, soigneur: "Soigneur"):
         self.nom = nom
 
@@ -84,5 +85,10 @@ class Animal:
         # self.satisfaction = min(self.satisfaction + 10, 100)
         print(f"{self.nom} a bien mangé, et il est satisfait!")
 
+    @abstractmethod
     def observer_environement(self):
-        print(f"L'animal {self.nom} observe l'environnement !")
+        pass
+
+    @abstractmethod
+    def probabilite_deces(self):
+        pass

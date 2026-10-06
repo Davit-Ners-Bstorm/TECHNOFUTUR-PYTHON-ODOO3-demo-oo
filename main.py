@@ -59,19 +59,14 @@ enclos1.enlever_animal(elephant1)
 # print(sayHello("Raphaël", 'Bonjour'))
 # print(sayHello(bonjour='Bonjour', nom='Raphaël'))
 
-animal1 = Animal("animal", 20, 20, soigneur1)
-
 girafe = Girafe("girafe", 25, 25, soigneur2, 23)
 
 print(isinstance(elephant1, Elephant))
 print(isinstance(elephant1, Animal))
-print(isinstance(animal1, Elephant))
 
-animal1.manger()
 elephant1.manger()
 girafe.manger()
 
 
-animal1.observer_environement()
 elephant1.observer_environement()
 girafe.observer_environement("bizzare")

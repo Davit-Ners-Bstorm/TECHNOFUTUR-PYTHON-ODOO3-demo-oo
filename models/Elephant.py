@@ -26,3 +26,6 @@ class Elephant(Animal):
 
     def observer_environement(self, how: str = 'intense'):
         print(f"L'elephant {self.nom} observe l'environnement de manière {how} !")
+
+    def probabilite_deces(self):
+        return 5
