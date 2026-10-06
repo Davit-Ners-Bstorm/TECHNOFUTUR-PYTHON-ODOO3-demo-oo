@@ -72,6 +72,36 @@ class Voiture:
     def __lt__(self, other: "Voiture"):
         return self.date_de_fabrication < other.date_de_fabrication
 
+class Test:
+    def test(self):
+        print('hehe je suis un test')
+
+    def accelerer(self):
+        print('Test acceleration')
+
+class VoitureDeSport(Voiture, Test):
+    def __init__(self, marque, model, couleur, identifiant, date_de_fabrication, motorisation):
+        super().__init__(marque, model, couleur, identifiant, date_de_fabrication)
+        self.motorisation = motorisation
+
+    @property
+    def motorisation(self):
+        return self._motorisation
+
+    @motorisation.setter
+    def motorisation(self, nv_motorisation):
+        self._motorisation = nv_motorisation
+
+    def drift(self):
+        print("vroum vroum ça drift!")
+
+    @property
+    def infos(self):
+        infos_base = super().infos
+        return f"SPORT - {infos_base}"
+
+    def __str__(self):
+        return f"SPORT --- {super().__str__()}"
 
 
 voiture1 = Voiture("BMW", "M3", "Blanche", "1", 1980)
@@ -153,3 +183,23 @@ voiture3 = Voiture('Toyota', "Corolla", "Bleu", "3", 1980)
 print(voiture1 == voiture2)
 print(voiture1 == voiture3)
 print(voiture1 > voiture2)
+
+voiture_sport = VoitureDeSport("Aston Martin", "DBS", "jaune", "S4", 2015, "3L")
+
+voiture_sport.drift()
+
+# print(voiture_sport.model)
+
+# print(voiture_sport)
+
+# print(voiture_sport > voiture1)
+
+print(voiture_sport.infos)
+print(voiture_sport.motorisation)
+print(voiture_sport)
+print(voiture_sport.test())
+print(voiture_sport.accelerer())
+
+print(VoitureDeSport.__bases__)
+
+print(issubclass(VoitureDeSport, Voiture))
