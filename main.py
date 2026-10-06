@@ -1,13 +1,15 @@
 from models.Soigneur import Soigneur
 from models.Elephant import Elephant
 from models.Enclos import Enclos
+from models.Animal import Animal
+from models.Girafe import Girafe
 
 
 soigneur1 = Soigneur("Jordan", "01/01/1994", "+15 ans trop fort", 5)
 soigneur2 = Soigneur("Raphaël", "01/01/1994", "+15 ans trop fort", 5)
-elephant1 = Elephant("el", 50, 50, soigneur1)
-elephant2 = Elephant("el2", 50, 50, soigneur1)
-elephant3 = Elephant("el3", 50, 50, soigneur2)
+elephant1 = Elephant("el", 50, 50, soigneur1, 24)
+elephant2 = Elephant("el2", 50, 50, soigneur1, 24)
+elephant3 = Elephant("el3", 50, 50, soigneur2, 24)
 
 print('infos elephant', f"satisfaction = {elephant1.satisfaction}", f"appetit = {elephant1.appetit}")
 
@@ -56,3 +58,20 @@ enclos1.enlever_animal(elephant1)
 
 # print(sayHello("Raphaël", 'Bonjour'))
 # print(sayHello(bonjour='Bonjour', nom='Raphaël'))
+
+animal1 = Animal("animal", 20, 20, soigneur1)
+
+girafe = Girafe("girafe", 25, 25, soigneur2, 23)
+
+print(isinstance(elephant1, Elephant))
+print(isinstance(elephant1, Animal))
+print(isinstance(animal1, Elephant))
+
+animal1.manger()
+elephant1.manger()
+girafe.manger()
+
+
+animal1.observer_environement()
+elephant1.observer_environement()
+girafe.observer_environement("bizzare")
