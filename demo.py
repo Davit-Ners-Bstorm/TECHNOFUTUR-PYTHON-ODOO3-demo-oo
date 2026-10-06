@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 
 class Voiture:
     nombre_de_roues = 4
@@ -55,7 +55,7 @@ voiture1 = Voiture("BMW", "M3", "Blanche", "1", 1980)
 voiture2 = Voiture('Mercedes', "C63", "Noire", "2", 2011)
 voiture3 = Voiture('Toyota', "Corolla", "Bleu", "3", 2025)
 
-print(isinstance(voiture1, Voiture))
+# print(isinstance(voiture1, Voiture))
 
 # voiture1.marque = "Peugeot"
 # voiture1.marque = 'Peugeot'
@@ -93,3 +93,9 @@ print(isinstance(voiture1, Voiture))
 # chat1.race = "Siamois"
 
 # print(chat1.race, chat2.nom, Chat.nom)
+
+daaate = "07/10/1994"
+
+
+
+print(age)

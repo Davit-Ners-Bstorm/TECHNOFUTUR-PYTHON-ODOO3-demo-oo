@@ -1,3 +1,4 @@
+from datetime import date
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -6,14 +7,50 @@ if TYPE_CHECKING:
 class Soigneur:
     def __init__(self, nom: str, date_de_naissance: str, experience: str, nb_animaux_responsable: int):
         self.nom = nom
-        self.date_de_naissance = date_de_naissance
-        self.experience = experience
+        self._date_de_naissance = date_de_naissance
+        self._experience = experience
 
         if nb_animaux_responsable < 0:
             print('Attention valeure negative')
-            self.nb_animaux_responsable = 0
+            self._nb_animaux_responsable = 0
         else:
-            self.nb_animaux_responsable = nb_animaux_responsable
+            self._nb_animaux_responsable = nb_animaux_responsable
+
+    @property
+    def nom(self):
+        return self._nom
+
+    @nom.setter
+    def nom(self, nv_nom: str):
+        if not nv_nom:
+            raise ValueError("Le nom ne peut pas être vide!")
+        if type(nv_nom) != str:
+            raise TypeError("Le nom doit être un string!")
+        self._nom = nv_nom
+
+    @property
+    def date_de_naissance(self):
+        return self._date_de_naissance
+
+    @property
+    def experience(self):
+        return self._experience
+
+    @property
+    def nb_animaux_responsable(self):
+        return self._nb_animaux_responsable
+
+    @property
+    def age(self):
+        day, month, year = [int(i) for i in self.date_de_naissance.split('/')]
+        today = date.today()
+
+        soigneur_age = today.year - year
+
+        if (today.month, today.day) < (month, day):
+            soigneur_age -= 1
+
+        return soigneur_age
 
     def nourrir(self, elephant: "Elephant"):
         if elephant.soigneur == self:

@@ -38,7 +38,7 @@ enclos1.afficher_animaux()
 
 # enclos1.ajouter_animal(elephant2)
 
-elephant1.en_vie = False
+# elephant1.en_vie = False
 
 enclos1.afficher_animaux()
 

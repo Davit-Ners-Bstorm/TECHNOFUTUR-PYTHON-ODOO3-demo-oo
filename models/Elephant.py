@@ -18,15 +18,8 @@ class Elephant:
             self._appetit = appetit
 
         # Satisfaction
-        if satisfaction < 0:
-            print("Valeur negative, il va mourrir de tristesse!!!La satisfaction est automatiquement ramené à 0")
-            self._satisfaction = 0
-        elif satisfaction > 100:
-            print("Attention il v aexploser de joie, la satisfaction est automatiquement ramené à 100")
-            self._satisfaction = 100
-        else:
-            self._satisfaction = satisfaction
-
+        self.satisfaction = satisfaction
+        
         self.soigneur = soigneur
 
         self._en_vie = True
@@ -51,6 +44,18 @@ class Elephant:
     def satisfaction(self):
         return self._satisfaction
 
+    @satisfaction.setter
+    def satisfaction(self, nv_satisfaction: int):
+        if nv_satisfaction < 0:
+            print("Valeur negative, il va mourrir de tristesse!!!La satisfaction est automatiquement ramené à 0")
+            self._satisfaction = 0
+        elif nv_satisfaction > 100:
+            print("Attention il v aexploser de joie, la satisfaction est automatiquement ramené à 100")
+            self._satisfaction = 100
+        else:
+            self._satisfaction = nv_satisfaction
+        
+
     @property
     def en_vie(self):
         return self._en_vie
@@ -61,6 +66,7 @@ class Elephant:
 
     @soigneur.setter
     def soigneur(self, nv_soigneur: "Soigneur"):
+        from models.Soigneur import Soigneur
         if not isinstance(nv_soigneur, Soigneur):
             raise TypeError("Le soigneur doit être de type soigneur!")
         self._soigneur = nv_soigneur
